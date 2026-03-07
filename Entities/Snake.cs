@@ -92,18 +92,18 @@ namespace C_Snake.Entities
 
         public bool OnBody(Position position)
         {
-            foreach (Position body in Body)
-            {
-                if (_body.Contains(position))
-                    return false;
-            }
-            return true;
+            return _body.Contains(position);
+        }
+
+        public void Kill()
+        {
+            Dead = true;
         }
 
         private static bool PositionIsValid(Position position) =>
             position.Top >= 0 &&
             position.Left >= 0 &&
-            position.Top < 30 &&
+            position.Top < 28 &&
             position.Left < 40;
     }
 

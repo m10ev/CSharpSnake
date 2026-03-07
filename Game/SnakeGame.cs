@@ -228,7 +228,7 @@ namespace C_Snake.Game
 
         private Apple CreateApple()
         {
-            const int numberOfRows = 30;
+            const int numberOfRows = 28;
             const int numberOfColumns = 40;
 
             var random = new Random();
@@ -239,7 +239,7 @@ namespace C_Snake.Game
                 var top = random.Next(0, numberOfRows);
                 var left = random.Next(0, numberOfColumns);
                 position = new Position(top, left);
-            } while (!_snake.OnBody(position)); // Avoid overlap with head
+            } while (_snake.OnBody(position)); // Avoid overlap with head
 
             return new Apple(position);
         }
